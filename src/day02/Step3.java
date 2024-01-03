@@ -53,5 +53,6 @@ public class Step3 {
         //입력받은 문자 반환x ->문자열.charAt(추출인덱스)
         char ch = scanner.next().charAt(0);
         System.out.println("ch = " + ch);
+        System.out.println("hello Wolrd");
     }
 }
