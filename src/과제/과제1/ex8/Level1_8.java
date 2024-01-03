@@ -43,7 +43,7 @@ public class Level1_8 {
 		scanner.nextLine();
 		System.out.print("[3]방문록 :");
 		b = scanner.nextLine();
-		boardlist = 3+"\t"+a+"\t"+b;
+		boardlist = 3+"\t"+a+"\t\t"+b;
 		output = output+"\n"+boardlist;
 		System.out.print(header);
 		System.out.println(output);
@@ -70,7 +70,7 @@ public class Level1_8 {
 		System.out.print(header);
 		System.out.println(output);
 		System.out.println(footer);
-		/* ----------- */
+        /* ----------- */
 	}
 }
 /* 
