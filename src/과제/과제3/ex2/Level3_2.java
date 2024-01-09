@@ -23,6 +23,7 @@ public class Level3_2 {
 				System.out.println("안내) 프로그램 종료합니다. [총"+i+"회 입력]");
 			}
 			i++;
+			run = false;
 		}
 
 	}
