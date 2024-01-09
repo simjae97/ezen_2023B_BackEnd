@@ -9,9 +9,22 @@ public class Level3_4 {
 		System.out.println(" >> Level3_4 answer >> ");
 		System.out.println(" >> answer time : " + LocalDateTime.now() +" >> \n" );
 		Scanner scanner = new Scanner(System.in);
-	
+		String b = "";
+		int c =0;
 		/* 문제풀이 위치 */
-	
+		while (true){
+			System.out.print("input :");
+			int a= scanner.nextInt();
+			b="";
+			c += a;
+			if (c <= -1){
+				break;
+			}
+			for (int i = 0; i<c; i++){
+				b += "■ ";
+			}
+			System.out.println(b);
+		}
 		/* ----------- */
 
 	}

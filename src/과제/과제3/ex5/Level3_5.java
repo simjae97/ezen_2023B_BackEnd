@@ -10,11 +10,15 @@ public class Level3_5 {
 		System.out.println(" >> Level3_5 answer >> ");
 		System.out.println(" >> answer time : " + LocalDateTime.now() +" >> \n" );
 		Scanner scanner = new Scanner(System.in);
-	
+
 		String authNumber = "";
 		
 		/* 문제풀이 위치 */
-		
+		for (int i = 0; i<6; i++){
+			int a =(int)(Math.random()*10);
+			authNumber += a+"";
+		}
+		System.out.println("본인확인 인증번호 :"+authNumber);
 		/* ----------- */
 
 	}
