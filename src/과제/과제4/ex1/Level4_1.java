@@ -1,6 +1,7 @@
 package 과제.과제4.ex1;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Level4_1 {
@@ -11,7 +12,7 @@ public class Level4_1 {
 		Scanner scanner = new Scanner(System.in);
 
 		int[] point = { 97 , 73 ,52 , 76 , 51 };
-
+		System.out.println(Arrays.toString(point));
 		/* 문제풀이 위치 */
 		System.out.print("앞쪽부터 :");
 		for (int i:point){
