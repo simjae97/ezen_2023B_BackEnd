@@ -30,7 +30,7 @@ public class Step4_1 { // cs
                 //Phone newPhone = new Phone();
                 //newPhone.name = name;
                 //newPhone.number = number;
-                    // 2. 정의생성자 사용시
+                    // 2. 정의생성자 사용시v
                 Phone newPhone = new Phone( name , number );
 
                 // 3. phoneBook배열내 빈공간을 찾아서 해당 인덱스에 객체 넣기

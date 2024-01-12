@@ -56,13 +56,13 @@ public class Step4 {
 }
 
 //1.전화번호 1개에 해당하는 설계도
-class Phone{
+class Phone1{
 
     //1.필드
     private String user;
     private String number;
 
-    Phone(String user, String number){
+    Phone1(String user, String number){
         this.user =user;
         this.number = number;
     }
