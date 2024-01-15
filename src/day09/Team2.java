@@ -3,7 +3,7 @@ package day09;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Quiz1 {
+public class Team2{
     static ArrayList<유저정보> 전체유저 = new ArrayList<유저정보>();
 
     public static void main(String[] args) {
