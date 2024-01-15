@@ -210,4 +210,5 @@ class 구독{
     String 타입;
     int 구독기간;
 
+
 }
