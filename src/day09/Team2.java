@@ -1,11 +1,10 @@
 package day09;
 
-import org.w3c.dom.ls.LSOutput;
-
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Quiz1 {
-
+    static ArrayList<유저정보> 전체유저 = new ArrayList<유저정보>();
 
     public static void main(String[] args) {
         유저정보[] 전체유저 = new 유저정보[100];
