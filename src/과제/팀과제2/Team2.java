@@ -2,7 +2,7 @@ package 과제.팀과제2;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-public class Quiz1 {
+public class Team2 {
     static Scanner scanner = new Scanner(System.in);
     static ArrayList<유저정보> 전체유저 = new ArrayList<유저정보>();
     static ArrayList<구독> 전체구독 = new ArrayList<구독>();
