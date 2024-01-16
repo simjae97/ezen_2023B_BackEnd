@@ -1,5 +1,6 @@
 package day10;
 
+import java.io.*; //java.io는 생략 가능
 import java.util.ArrayList;
 import java.util.Scanner;
 
