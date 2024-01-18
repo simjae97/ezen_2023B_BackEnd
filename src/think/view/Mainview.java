@@ -13,6 +13,9 @@ public class Mainview {
             if (ch == 1) {
                 subview.계좌생성();
             }
+            else if (ch == 2) {
+                subview.예금();
+            }
         }
     }
 }

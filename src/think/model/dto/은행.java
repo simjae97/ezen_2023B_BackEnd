@@ -1,6 +1,6 @@
 package think.model.dto;
 
-public abstract class 은행{
+public class 은행{
 
     String 계좌번호;
     String 계좌주;
