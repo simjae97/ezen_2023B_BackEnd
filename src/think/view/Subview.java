@@ -13,7 +13,7 @@ public class Subview {
         System.out.println("이름 입력");
         String name = Mainview.scanner.next();
         System.out.println("입금액 입력");
-        String money = Mainview.scanner.next();
+        int money = Mainview.scanner.nextInt();
         System.out.println("1.신한은행 2.국민 3.농협");
         int ch = Mainview.scanner.nextInt();
         if (ch == 1){
@@ -57,10 +57,73 @@ public class Subview {
         System.out.println("계좌번호 입력");
         String anum = Mainview.scanner.next();
         System.out.println("입금액 입력");
-        String money = Mainview.scanner.next();
+        int money = Mainview.scanner.nextInt();
         은행 a = new 은행();
         a.set입금액(money);
         a.set계좌번호(anum);
-        String result = controller.입금(a);
+        if(anum.length() >= 2 ) {
+            String result = controller.입금(a);
+            if (result != null) {
+                System.out.println("현재 회원님의 총 금액은" + result + "입니다.");
+            } else {
+                System.out.println("없는 계좌번호입니다");
+            }
+        }
+        else {
+            System.out.println("계좌번호가 잘못되었습니다");
+        }
+    }
+    public void 출금(){
+        System.out.println("계좌번호 입력");
+        String anum = Mainview.scanner.next();
+        System.out.println("출금액 입력");
+        int money = Mainview.scanner.nextInt();
+        은행 a = new 은행();
+        a.set입금액(money);
+        a.set계좌번호(anum);
+        if(anum.length()>=2) {
+            String result = controller.출금(a);
+            if (result != null) {
+                System.out.println("현재 회원님의 총 금액은" + result + "입니다.");
+            } else {
+                System.out.println("없는 계좌번호입니다");
+            }
+        }
+        else {
+            System.out.println("계좌번호가 잘못되었습니다");
+        }
+    }
+
+    public void 계좌확인(){
+        System.out.println("계좌번호 입력");
+        String anum = Mainview.scanner.next();
+        은행 a = new 은행();
+        a.set계좌번호(anum);
+        은행 result = controller.계좌확인(a);
+        if(result != null){
+            if(result instanceof 국민){
+                국민 result1 = (국민) result;
+                System.out.println("계좌주:"+result1.get계좌주());
+                System.out.println("계좌번호 :"+result1.get계좌번호());
+                System.out.println("현재 금액:"+result1.get입금액());
+                System.out.println("쿠폰이벤트 참여여부:"+result1.get입금확인());
+            }
+            else if(result instanceof 농협){
+                농협 result1 = (농협) result;
+                System.out.println("계좌주:"+result1.get계좌주());
+                System.out.println("계좌번호 :"+result1.get계좌번호());
+                System.out.println("현재 금액:"+result1.get입금액());
+                System.out.println("포인트 :"+result1.get포인트());
+            }
+            else if(result instanceof 신한){
+                신한 result1 = (신한) result;
+                System.out.println("계좌주:"+result1.get계좌주());
+                System.out.println("계좌번호 :"+result1.get계좌번호());
+                System.out.println("현재 금액:"+result1.get입금액());
+                System.out.println("마일리지 :"+result1.get마일리지());
+            }
+
+        }
+
     }
 }
