@@ -1,6 +1,6 @@
 package think.model.dto;
 
-public class 은행{
+public class 은행{ //상속용 부모클래스
 
     String 계좌번호;
     String 계좌주;

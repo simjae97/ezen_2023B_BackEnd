@@ -4,6 +4,7 @@ import think.model.dao.Dao;
 import think.model.dto.*;
 
 public class Controller {
+    //컨트롤러는 기본적으로 DAO에 값만 전달, 추후 js로 view를 만들시 형변환 추가
     Dao dao = new Dao();
     public boolean 계좌생성(은행 유저){
         boolean result = dao.계좌생성(유저);
