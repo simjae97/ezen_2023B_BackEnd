@@ -1,10 +1,23 @@
 제약조건 : 데이터의 검사 규칙
 	-테이블 선언시 필드타입 뒤에서 작성
+		ddl
+	-drop
+
 	-create table 테이블명(
 		필드명 타입 제약조건명,
 		필드명 타입 제약조건명,
 		필드명 타입 제약조건명
 	)
+		dml
+	insert
+		1.모든필드 : insert into 테이블명 values(값1,값2);
+		2.특정필드:insert into 테이블명 values(값1,값2);
+	select
+		1.모든 필드의 레코드 검색: select * from 테이블명;
+	update
+		1.update 테이블명 set 수정할 필드명 = 수정할 값 .수정할필드명 = 수정할 값
+	delete
+		1.delete from 테이블명;
 	
 	-종류
 		1. not null : 필드내에 null을 포함하지 않는다.
