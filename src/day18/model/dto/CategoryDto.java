@@ -4,8 +4,8 @@ public class CategoryDto {
     private int cno;
     private String cname;
 
-    CategoryDto(){}
-    CategoryDto( String cname){
+    public CategoryDto(){}
+    public CategoryDto( String cname){
         this.cname = cname;
     }
 
