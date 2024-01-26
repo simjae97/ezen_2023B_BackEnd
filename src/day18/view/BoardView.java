@@ -42,7 +42,7 @@ public class BoardView {
                     System.out.println("글쓰기 성공");
                 } else if (BoardController.getInstance().boardWrite(boardDto)==1) {
                     System.out.println("글쓰기 실패");
-                }
+                }  // 우선여기까지
             }
             else if (ch==2){
                 System.out.println("볼 번호 입력");
