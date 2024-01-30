@@ -1,5 +1,7 @@
 package day18.model.dto;
 
+import day16.step1.Television;
+
 public class BoardDto {
     private int cno ;
     private int mno ;
@@ -8,6 +10,7 @@ public class BoardDto {
     private String bcontents ;
     private String  bdate ;
     private long bview ;
+
 
     public BoardDto(int cno, int mno, int bno, String btitle, String bcontents, String bdate, long bview) {
         this.cno = cno;
