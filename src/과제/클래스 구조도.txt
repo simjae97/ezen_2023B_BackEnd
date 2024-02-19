@@ -1,0 +1,46 @@
+
+
+            controller
+                ⎿ BoardAllViewController
+                ⎿ Board1Controller
+                ⎿ BoardUpdateController
+                ⎿ BoardWriteController
+                ⎿ EmployeeController
+                ⎿ MailController
+                ⎿ ReplyController
+
+            DAO
+            ⎿ SuperDao
+                ⎿ Board1DAO
+                ⎿ BoardAllViewDAO
+                ⎿ BoardUpdateDAO
+                ⎿ BoardWriteDAO
+                ⎿ EmployeeDAO
+                ⎿ MailDAO
+                ⎿ ReplyDAO
+                ⎿ ReportDAO
+
+
+            DTO
+                ⎿ BoardDTO
+                ⎿ EmployeeDTO
+                ⎿ GradeDTO
+                ⎿ MailDTO
+                ⎿ PartDTO
+                ⎿ ReplyDTO
+                ⎿ ReportDTO
+                    ⎿ PurchaseReportDTO
+                    ⎿ VacationReportDTO
+                    ⎿ WorkReportDTO
+
+            VIEW
+            ⎿ Application
+                ⎿ MainView
+                    ⎿ BoardAllView
+                    ⎿ Board1View
+                    ⎿ BoardUpdateView
+                    ⎿ BoardWriteView
+                    ⎿ EmployeeView
+                    ⎿ MailView
+                    ⎿ ReplyView
+
