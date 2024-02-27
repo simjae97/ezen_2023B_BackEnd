@@ -9,7 +9,7 @@ public class AhoCorasick {
 
     public AhoCorasick(List<String> patterns) {
         root = new TrieNode(); //부모노드 일단 만들고
-        buildTrie(patterns); //빌드로 트리와 실패상태 구현
+        buildTrie(patterns); //생성자 대신 빌드로 만들어둔 패턴리스트 대입
         buildFailTransitions();
     }
 
@@ -17,10 +17,10 @@ public class AhoCorasick {
         for (String pattern : patterns) {
             TrieNode node = root;
             for (char c : pattern.toCharArray()) {
-                node.children.putIfAbsent(c, new TrieNode());
-                node = node.children.get(c);
+                node.children.putIfAbsent(c, new TrieNode()); // c라는 key값이 존재하지 않을때에만 넣어주겠다
+                node = node.children.get(c); //현재 노드를 자식노드로 변경
             }
-            node.output.add(pattern);
+            node.output.add(pattern); //종료되는 패턴 저장
         }
     }
 
@@ -28,16 +28,16 @@ public class AhoCorasick {
         Queue<TrieNode> queue = new LinkedList<>(); //실패상태는 queue구조 , KMP와 유사
         for (TrieNode child : root.children.values()) {
             queue.add(child);
-            child.fail = root;
+            child.fail = root; //초기화시 실패할때 루트로 돌아간다
         }
         while (!queue.isEmpty()) {
-            TrieNode node = queue.poll();
+            TrieNode node = queue.poll(); //넣은 순서대로 다시 큐에서 뽑아옴
             for (Map.Entry<Character, TrieNode> entry : node.children.entrySet()) {
                 char c = entry.getKey();
                 TrieNode child = entry.getValue();
                 queue.add(child);
                 TrieNode failState = node.fail;
-                while (failState != null && !failState.children.containsKey(c)) {
+                while (failState != null && !failState.children.containsKey(c)) { //failState 현재 노드의 실패 노드를 나타내며, failState를 이용하여 해당 노드의 실패 노드를 찾는 과정 근데 현재는 전부 root? 다시구현
                     failState = failState.fail;
                 }
                 child.fail = failState != null ? failState.children.get(c) : root;
