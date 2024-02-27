@@ -9,6 +9,7 @@ public class Node {
         // 단어의 끝인지 아닌지 체크
     boolean endOfword;
     boolean fail;
+    String word;
 
     @Override
     public String toString() {

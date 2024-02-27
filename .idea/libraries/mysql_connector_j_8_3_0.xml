@@ -2,8 +2,10 @@
   <library name="mysql-connector-j-8.3.0">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/src/DB/mysql-connector-j-8.3.0.jar!/" />
+      <root url="file://$PROJECT_DIR$/src/DB" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/src/DB" recursive="false" />
   </library>
 </component>
