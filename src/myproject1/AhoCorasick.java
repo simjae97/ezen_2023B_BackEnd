@@ -46,6 +46,7 @@ public class AhoCorasick {
         }
     }
 
+
     public List<String> search(String text) {
         List<String> results = new ArrayList<>();
         TrieNode currentState = root;
