@@ -41,7 +41,7 @@ public class AhoCorasick {
                                                                                 //현재는 모든 코드가 root여서 단순히 root노드로 돌아가나? 제대로 구현됐는지 헷갈림
                     failState = failState.fail;
                 }
-                child.fail = failState != null ? failState.children.get(c) : root;
+                child.fail = failState != null ? failState.children.get(c) : root; //아마 여기에서 페일노드 바꿔 주는거맞는거같은데 코드리뷰하다 헷갈린듯함.
                 child.output.addAll(child.fail.output);
             }
         }
