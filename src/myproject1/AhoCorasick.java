@@ -10,7 +10,7 @@ public class AhoCorasick {
     public AhoCorasick(List<String> patterns) {
         root = new TrieNode(); //부모노드 일단 만들고
         buildTrie(patterns); //생성자 대신 빌드로 만들어둔 패턴리스트 대입
-        buildFailTransitions();
+        computeFailFunc();
     }
 
     private void buildTrie(List<String> patterns) { //받아온 리스트 패턴을 그대로 대입해줘서 Trie구조 생성
@@ -38,7 +38,7 @@ public class AhoCorasick {
                 queue.add(child);
                 TrieNode failState = node.fail;
                 while (failState != null && !failState.children.containsKey(c)) { //failState 현재 노드의 실패 노드를 나타내며, failState를 이용하여 해당 노드의 실패 노드를 찾는 과정
-                                                                                //현재는 모든 코드가 root여서 단순히 root노드로 돌아감. 어떻게 다시 구현할지 고민
+                                                                                //현재는 모든 코드가 root여서 단순히 root노드로 돌아감. 어떻게 다시 구현해야되는지
                     failState = failState.fail;
                 }
                 child.fail = failState != null ? failState.children.get(c) : root;
@@ -46,7 +46,62 @@ public class AhoCorasick {
             }
         }
     }
-
+//    public void computeFailFunc() { //얘네도 결국 root로 되돌아가는거아닌가 싶긴한데 일ㄹ단 찾아본것들
+//        Queue<TrieNode> queue = new LinkedList<>();
+//        TrieNode root = this.root;
+//        queue.add(root);
+//
+//        while (!queue.isEmpty()) {
+//            TrieNode now = queue.poll();
+//
+//            for (Map.Entry<Character, TrieNode> entry : now.children.entrySet()) {
+//                char ch = entry.getKey();
+//                TrieNode next = entry.getValue();
+//
+//                if (now == root) {
+//                    next.fail = root;
+//                } else {
+//                    TrieNode prev = now.fail;
+//                    while (prev != root && !prev.children.containsKey(ch)) {
+//                        prev = prev.fail;
+//                    }
+//                    if (prev.children.containsKey(ch)) {
+//                        prev = prev.children.get(ch);
+//                    }
+//                    next.fail = prev;
+//                }
+//
+//
+//                queue.add(next);
+//            }
+//        }
+//    }
+//    public void computeFailFunc() {
+//        Queue<TrieNode> queue = new LinkedList<>();
+//        TrieNode root = this.root;
+//        queue.add(root);
+//
+//        while (!queue.isEmpty()) {
+//            TrieNode now = queue.poll();
+//
+//            for (Map.Entry<Character, TrieNode> entry : now.children.entrySet()) {
+//                char ch = entry.getKey();
+//                TrieNode next = entry.getValue();
+//
+//                // 부모 노드의 실패 노드를 참조하여 실패 노드를 설정합니다.
+//                TrieNode prev = now.fail;
+//                while (prev != root && !prev.children.containsKey(ch)) {
+//                    prev = prev.fail;
+//                }
+//                if (prev.children.containsKey(ch)) {
+//                    prev = prev.children.get(ch);
+//                }
+//                next.fail = prev;
+//
+//                queue.add(next);
+//            }
+//        }
+//    }
 
     public List<String> search(String text) {
         List<String> results = new ArrayList<>(); //결과값 받아와줄 리설트 생성
