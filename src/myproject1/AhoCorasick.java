@@ -38,7 +38,7 @@ public class AhoCorasick {
                 queue.add(child);
                 TrieNode failState = node.fail;
                 while (failState != null && !failState.children.containsKey(c)) { //failState 현재 노드의 실패 노드를 나타내며, failState를 이용하여 해당 노드의 실패 노드를 찾는 과정
-                                                                                //현재는 모든 코드가 root여서 단순히 root노드로 돌아감. 어떻게 다시 구현해야되는지
+                                                                                //현재는 모든 코드가 root여서 단순히 root노드로 돌아가나? 제대로 구현됐는지 헷갈림
                     failState = failState.fail;
                 }
                 child.fail = failState != null ? failState.children.get(c) : root;
