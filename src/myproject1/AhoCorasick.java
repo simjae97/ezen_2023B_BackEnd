@@ -10,7 +10,7 @@ public class AhoCorasick {
     public AhoCorasick(List<String> patterns) {
         root = new TrieNode(); //부모노드 일단 만들고
         buildTrie(patterns); //생성자 대신 빌드로 만들어둔 패턴리스트 대입
-        computeFailFunc();
+        buildFailTransitions();
     }
 
     private void buildTrie(List<String> patterns) { //받아온 리스트 패턴을 그대로 대입해줘서 Trie구조 생성
