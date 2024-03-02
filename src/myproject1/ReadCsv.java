@@ -22,7 +22,7 @@ public class ReadCsv {
         String test = "";
         try {
             // 대상 CSV 파일의 경로 설정
-            br = Files.newBufferedReader(Paths.get("C:\\Users\\504\\Desktop\\ezen_2023B_BackEnd\\Word_Filter.csv"),Charset.forName("UTF-8")); //csv 위치
+            br = Files.newBufferedReader(Paths.get("C:\\Users\\tlawo\\IdeaProjects\\ezen_2023B_BackEnd\\Word_Filter.csv"),Charset.forName("UTF-8")); //csv 위치
             // CSV파일에서 읽어들인 1행분의 데이터
             String line = "";
 
@@ -75,5 +75,13 @@ public class ReadCsv {
         afterTime = System.currentTimeMillis();
         secDiffTime = (afterTime - beforeTime);
         System.out.println("시간차이 : "+secDiffTime);
+
+
+        String prefix = "dro";
+        List<String> suggestions = ret.autocomplete(prefix);
+        System.out.println("검색어 '" + prefix + "'를 위한 자동완성 제안:");
+        for (String suggestion : suggestions) {
+            System.out.println(suggestion);
+        }
     }
 }

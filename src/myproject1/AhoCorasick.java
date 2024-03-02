@@ -21,6 +21,7 @@ public class AhoCorasick {
                 node = node.children.get(c); //현재 노드를 자식노드로 변경
             }
             node.output.add(pattern); //종료되는 패턴 저장
+            node.isEndOfWord = true;
         }
     }
 
@@ -46,62 +47,6 @@ public class AhoCorasick {
             }
         }
     }
-//    public void computeFailFunc() { //얘네도 결국 root로 되돌아가는거아닌가 싶긴한데 일ㄹ단 찾아본것들
-//        Queue<TrieNode> queue = new LinkedList<>();
-//        TrieNode root = this.root;
-//        queue.add(root);
-//
-//        while (!queue.isEmpty()) {
-//            TrieNode now = queue.poll();
-//
-//            for (Map.Entry<Character, TrieNode> entry : now.children.entrySet()) {
-//                char ch = entry.getKey();
-//                TrieNode next = entry.getValue();
-//
-//                if (now == root) {
-//                    next.fail = root;
-//                } else {
-//                    TrieNode prev = now.fail;
-//                    while (prev != root && !prev.children.containsKey(ch)) {
-//                        prev = prev.fail;
-//                    }
-//                    if (prev.children.containsKey(ch)) {
-//                        prev = prev.children.get(ch);
-//                    }
-//                    next.fail = prev;
-//                }
-//
-//
-//                queue.add(next);
-//            }
-//        }
-//    }
-//    public void computeFailFunc() {
-//        Queue<TrieNode> queue = new LinkedList<>();
-//        TrieNode root = this.root;
-//        queue.add(root);
-//
-//        while (!queue.isEmpty()) {
-//            TrieNode now = queue.poll();
-//
-//            for (Map.Entry<Character, TrieNode> entry : now.children.entrySet()) {
-//                char ch = entry.getKey();
-//                TrieNode next = entry.getValue();
-//
-//                // 부모 노드의 실패 노드를 참조하여 실패 노드를 설정합니다.
-//                TrieNode prev = now.fail;
-//                while (prev != root && !prev.children.containsKey(ch)) {
-//                    prev = prev.fail;
-//                }
-//                if (prev.children.containsKey(ch)) {
-//                    prev = prev.children.get(ch);
-//                }
-//                next.fail = prev;
-//
-//                queue.add(next);
-//            }
-//        }
-//    }
 
     public List<String> search(String text) {
         List<String> results = new ArrayList<>(); //결과값 받아와줄 리설트 생성
@@ -120,5 +65,26 @@ public class AhoCorasick {
         }
         return results;
     }
+    public List<String> autocomplete(String prefix) { //원래 트라이구조 사용처인 검색어 기능을 추가해 자동완성 기능 추가
+        List<String> suggestions = new ArrayList<>(); //리턴할 문자열 리스트 생성
+        TrieNode node = root; //부모 루트부터 시작
+        for (char c : prefix.toCharArray()) { //문자열 향상된 포문
+            if (!node.children.containsKey(c)) {
+                return suggestions; // 문자열이 없을경우
+            }
+            node = node.children.get(c); //다음노드로 이동
+        }
+        getAllWords(node, prefix, suggestions); //저 문자열에 해당하는 노드위치를 알았으니 이제 리스트에 그거보다 아래인 자식문자열 찾기
+        return suggestions;
+    }
 
+
+    private void getAllWords(TrieNode node, String prefix, List<String> suggestions) {
+        if (node.isEndOfWord) {
+            suggestions.add(prefix); //끝문자면 바로 대입
+        }
+        for (char c : node.children.keySet()) { //직계 자손에 대한 반복문이므로 단순히 반복문을 돌려도 문제가 없음
+            getAllWords(node.children.get(c), prefix + c, suggestions); //재귀형태로 구현
+        }
+    }
 }
