@@ -13,6 +13,7 @@ public class AhoCorasick {
         buildFailTransitions();
     }
 
+
     private void buildTrie(List<String> patterns) { //받아온 리스트 패턴을 그대로 대입해줘서 Trie구조 생성
         for (String pattern : patterns) {
             TrieNode node = root;
